@@ -4,7 +4,7 @@
 
 Both visualization concepts are being built, sequenced — a Java 2D tile-based farm game (LibGDX, walkable player character, no economy/time simulation) as **phase 1**, then a Spring MVC+REST backend with an Angular frontend dashboard as **phase 2** — both reading from a jOOQ-backed persistence bridge connecting the existing Java alpaca objects to the SQL curriculum's shared Postgres `farm` database (see [Decide: dashboard vs. farm game as the next curriculum](issues/06-decide-dashboard-vs-game.md)).
 
-Reaching the end means a DESIGN.md-level spec for the **phase 1 (game) curriculum** (syllabus, lesson skeleton, scaffold-vs-taught boundaries) in the style of the two existing curriculum DESIGN.md docs, ready to start authoring lessons. A phase 2 (dashboard) DESIGN.md follows once phase 1 is underway — its remaining open decision is tracked ([Spring backend/controller: mentored or provided scaffold?](issues/03-spring-scaffold-or-mentored.md)) but isn't blocking. Authoring the lessons themselves (either phase) is out of scope for this map.
+Reaching the end means a DESIGN.md-level spec for the **phase 1 (game) curriculum** (syllabus, lesson skeleton, scaffold-vs-taught boundaries) in the style of the two existing curriculum DESIGN.md docs, ready to start authoring lessons. **Reached**: `DESIGN.md` is written at the repo root — see [Draft the phase 1 (game curriculum) DESIGN.md](issues/07-draft-phase1-design-doc.md). A phase 2 (dashboard) DESIGN.md follows once phase 1 is underway; its backend-scaffolding question is settled ([Spring backend/controller: mentored or provided scaffold?](issues/03-spring-scaffold-or-mentored.md) — full scaffold, mentored work is Angular only) but drafting that doc is a future effort, not part of this map. Authoring the lessons themselves (either phase) is out of scope for this map.
 
 ## Notes
 
@@ -13,6 +13,8 @@ Domain: mentored apprentice curriculum design (she's training as a Fachinformati
 - `sql-curriculum` ("The Data Barn") — SQL curriculum against a fixed seeded Postgres `farm` database, self-check via "Expected Result" `<details>` blocks (no automated grading), git commit per completed task. Its `DESIGN.md` documents the design rationale in full and is a good template for whatever DESIGN.md this map produces.
 
 Skills every session should consult: `/grilling` and `/domain-modeling` for grilling-type tickets; `/prototype` for the two prototype tickets; `/research` for the engine-choice ticket.
+
+All tickets are resolved, including [Draft the phase 1 (game curriculum) DESIGN.md](issues/07-draft-phase1-design-doc.md) — a `task`-type ticket that carried execution into the map (an intentional override of wayfinder's default plan-only scope, since the map's destination *was* that document). The map is done: the way to phase 1 is clear and there's nothing left to decide before lesson authoring starts. What remains (phase 2's own DESIGN.md, real art, theming reaction) is future work, tracked in Not yet specified rather than blocking anything here.
 
 Standing preferences:
 - No Hibernate/JPA — jOOQ only, deliberately kept simple.
@@ -29,20 +31,20 @@ Standing preferences:
 - [Prototype the Spring+Angular dashboard slice](issues/04-prototype-dashboard-slice.md) — Positive reaction to the dashboard concept across all 3 UI variants; no variant chosen (not this ticket's job). Dashboard path is a live candidate going into the path decision (06).
 - [Prototype the Java 2D tile-farm game slice](issues/05-prototype-game-slice.md) — Positive reaction ("like it very much, aside from the graphics") to the tilemap-walk-click-to-inspect concept. Game path is a live candidate going into the path decision (06).
 - [Decide: dashboard vs. farm game as the next curriculum](issues/06-decide-dashboard-vs-game.md) — No losing path: both get built, sequenced — game curriculum first (phase 1), dashboard curriculum second (phase 2). Reaction to both was equally strong; sequencing gets the bigger stretch/fun (game) first and the workplace-stack relevance (dashboard) second.
+- [Spring backend/controller: mentored or provided scaffold?](issues/03-spring-scaffold-or-mentored.md) — Full scaffold for phase 2's first pass, same as jOOQ; her mentored work is Angular only. Mentored backend/REST development deferred to a future, separate curriculum.
+- [Draft the phase 1 (game curriculum) DESIGN.md](issues/07-draft-phase1-design-doc.md) — `DESIGN.md` written at the repo root: schema reused as-is (read-only, loaded once at startup), TDD format matching the Java curriculum (testable core / untested render glue / phase-end demo, not the SQL curriculum's Expected-Result style), a first-draft 6-phase/~20-lesson syllabus, and a first-pass (unreacted-to) visual identity — "The Open Pasture," pasture green, boot-print mark.
 
 ## Not yet specified
 
-- Final syllabus / lesson breakdown for the phase 1 (game) curriculum.
-- Whether the jOOQ bridge reuses the existing `farm` schema tables (`staff`/`herds`/`pens`/`animals`/`shearing_records`/`fleece_sales`) as-is, or needs new tables/columns for the Java objects.
-- Theming/naming continuity for this curriculum (mascot, accent color, narrative framing) — both existing curricula got a deliberate visual identity; this one hasn't been discussed.
-- Game curriculum specifics: save/load, whether the world reflects live Postgres state on every interaction or a cached snapshot, how "clicking an alpaca to see its data" is presented in-game.
-- How self-checking ("Expected Result" style, matching both existing curricula) carries into a live interactive app rather than static HTML lessons.
+- Whether "The Open Pasture" naming/visual identity (proposed in the phase 1 DESIGN.md) actually lands — first-pass only, unreacted-to by the apprentice.
+- Real art assets for the phase 1 game (replacing placeholder colored squares) — an execution-time decision for whoever authors the lessons, not a design-doc-level one.
 - When exactly phase 2 (dashboard) starts relative to phase 1 (game) — strictly after phase 1 wraps, or once phase 1 is far enough along — hasn't been discussed; not urgent yet.
-- Dashboard curriculum specifics (once phase 2 is closer): which UI variant (A ledger table / B herd cards+drill-down / C KPI stats — see the dashboard-prototype ticket) or hybrid gets built for real; what CRUD operations she implements; whether auth is needed (probably not); deployment story (probably local-only).
+- Dashboard curriculum specifics (once phase 2 is closer): which UI variant (A ledger table / B herd cards+drill-down / C KPI stats — see the dashboard-prototype ticket) or hybrid gets built for real; which CRUD operations the scaffolded backend exposes and which of those she wires up from Angular (backend itself is scaffolded per ticket 03, so this is Angular-side scope only); whether auth is needed (probably not); deployment story (probably local-only).
 
 ## Out of scope
 
 - A dedicated database-integration/persistence curriculum (jOOQ or otherwise, hands-on). Ruled out while resolving [jOOQ persistence bridge: mentored phase or provided scaffold?](issues/02-jooq-scaffold-or-mentored.md): jOOQ specifically isn't exam-relevant, so the bridge is a scaffold instead. Stays a possible future, separate effort.
+- A mentored Spring MVC+REST backend-development curriculum (hands-on). Ruled out while resolving [Spring backend/controller: mentored or provided scaffold?](issues/03-spring-scaffold-or-mentored.md): the priority for phase 2's first pass is something visible quickly, so the backend is scaffolded and her mentored work stays on Angular. Stays a possible future, separate effort — and per that ticket's Ausbildungsrahmenplan fact-check, a stronger candidate for one than jOOQ was.
 - Literal Stardew Valley game systems — crops, seasons, day/night cycles, NPCs/dialogue, an economy. Ruled out during charting: only the tilemap-farm-view-plus-walkable-character tier is in scope, not a game-sim slice.
 - Building a custom 2D engine from scratch. Ruled out during charting in favor of an existing Java 2D engine (feeds the engine-research ticket).
 - Hibernate/JPA as the persistence layer. Ruled out during charting in favor of jOOQ.
