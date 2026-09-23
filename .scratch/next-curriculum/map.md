@@ -4,7 +4,7 @@
 
 Both visualization concepts are being built, sequenced — a Java 2D tile-based farm game (LibGDX, walkable player character, no economy/time simulation) as **phase 1**, then a Spring MVC+REST backend with an Angular frontend dashboard as **phase 2** — both reading from a jOOQ-backed persistence bridge connecting the existing Java alpaca objects to the SQL curriculum's shared Postgres `farm` database (see [Decide: dashboard vs. farm game as the next curriculum](issues/06-decide-dashboard-vs-game.md)).
 
-Reaching the end means a DESIGN.md-level spec for the **phase 1 (game) curriculum** (syllabus, lesson skeleton, scaffold-vs-taught boundaries) in the style of the two existing curriculum DESIGN.md docs, ready to start authoring lessons. **Reached**: `DESIGN.md` is written at the repo root — see [Draft the phase 1 (game curriculum) DESIGN.md](issues/07-draft-phase1-design-doc.md). A phase 2 (dashboard) DESIGN.md follows once phase 1 is underway; its backend-scaffolding question is settled ([Spring backend/controller: mentored or provided scaffold?](issues/03-spring-scaffold-or-mentored.md) — full scaffold, mentored work is Angular only) but drafting that doc is a future effort, not part of this map. Authoring the lessons themselves (either phase) is out of scope for this map.
+Reaching the end means a DESIGN.md-level spec for **both phases** (syllabus, lesson skeleton, scaffold-vs-taught boundaries) in the style of the two existing curriculum DESIGN.md docs, ready to start authoring lessons. **Phase 1 reached**: `DESIGN.md` is written at the repo root — see [Draft the phase 1 (game curriculum) DESIGN.md](issues/07-draft-phase1-design-doc.md). **Phase 2 in progress**: its backend-scaffolding question is settled ([Spring backend/controller: mentored or provided scaffold?](issues/03-spring-scaffold-or-mentored.md) — full scaffold, mentored work is Angular only), but its UI variant is still an open decision ([Decide: which dashboard UI variant becomes phase 2's curriculum](issues/08-decide-dashboard-ui-variant.md)), blocking [Draft the phase 2 (dashboard curriculum) DESIGN.md](issues/09-draft-phase2-design-doc.md). Authoring the lessons themselves (either phase) is out of scope for this map.
 
 ## Notes
 
@@ -14,7 +14,7 @@ Domain: mentored apprentice curriculum design (she's training as a Fachinformati
 
 Skills every session should consult: `/grilling` and `/domain-modeling` for grilling-type tickets; `/prototype` for the two prototype tickets; `/research` for the engine-choice ticket.
 
-All tickets are resolved, including [Draft the phase 1 (game curriculum) DESIGN.md](issues/07-draft-phase1-design-doc.md) — a `task`-type ticket that carried execution into the map (an intentional override of wayfinder's default plan-only scope, since the map's destination *was* that document). The map is done: the way to phase 1 is clear and there's nothing left to decide before lesson authoring starts. What remains (phase 2's own DESIGN.md, real art, theming reaction) is future work, tracked in Not yet specified rather than blocking anything here.
+Phase 1 is fully resolved through [Draft the phase 1 (game curriculum) DESIGN.md](issues/07-draft-phase1-design-doc.md) — a `task`-type ticket that carried execution into the map (an intentional override of wayfinder's default plan-only scope, since the map's destination *for that phase* was the document itself). Ticket [09](issues/09-draft-phase2-design-doc.md) carries the same override forward for phase 2, once [ticket 08](issues/08-decide-dashboard-ui-variant.md) unblocks it. What remains outside those two tickets (real art, theming reaction, exact phase-2 timing) is future work, tracked in Not yet specified rather than blocking anything here.
 
 Standing preferences:
 - No Hibernate/JPA — jOOQ only, deliberately kept simple.
@@ -39,7 +39,7 @@ Standing preferences:
 - Whether "The Open Pasture" naming/visual identity (proposed in the phase 1 DESIGN.md) actually lands — first-pass only, unreacted-to by the apprentice.
 - Real art assets for the phase 1 game (replacing placeholder colored squares) — an execution-time decision for whoever authors the lessons, not a design-doc-level one.
 - When exactly phase 2 (dashboard) starts relative to phase 1 (game) — strictly after phase 1 wraps, or once phase 1 is far enough along — hasn't been discussed; not urgent yet.
-- Dashboard curriculum specifics (once phase 2 is closer): which UI variant (A ledger table / B herd cards+drill-down / C KPI stats — see the dashboard-prototype ticket) or hybrid gets built for real; which CRUD operations the scaffolded backend exposes and which of those she wires up from Angular (backend itself is scaffolded per ticket 03, so this is Angular-side scope only); whether auth is needed (probably not); deployment story (probably local-only).
+- Which CRUD operations the scaffolded backend exposes and which of those she wires up from Angular (backend itself is scaffolded per ticket 03, so this is Angular-side scope only) — depends on the UI variant chosen in [ticket 08](issues/08-decide-dashboard-ui-variant.md), not yet specifiable ahead of it.
 
 ## Out of scope
 
